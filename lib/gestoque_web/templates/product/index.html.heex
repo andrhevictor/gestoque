@@ -1,86 +1,37 @@
 <div class="page-header">
-  <h3 class="page-title"> Lista de Produtos </h3>
+  <h3 class="page-title"> Produtos </h3>
 </div>
-
-
-<div class="col-12 grid-margin stretch-card">
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Basic form elements</h4>
-      <p class="card-description"> Basic form elements </p>
-      <form class="forms-sample">
-        <div class="form-group">
-          <label for="exampleInputName1">Nome</label>
-          <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail3">Descrição</label>
-          <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label>Categoria</label>
-          <select class="js-example-basic-single" style="width:100%">
-            <option value="AL">Alabama</option>
-            <option value="WY">Wyoming</option>
-            <option value="AM">America</option>
-            <option value="CA">Canada</option>
-            <option value="RU">Russia</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-        <button class="btn btn-dark">Cancel</button>
-      </form>
-    </div>
-  </div>
-</div>
-
+<span><%= link "New Product", class: "btn btn-success", to: Routes.product_path(@conn, :new) %></span>
 <div class="row">
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Hoverable Table</h4>
-
+        <h4 class="card-title">Lista de Produtos</h4>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Nome</th>
+                <th>Código</th>
+                <td>Nome</td>
                 <th>Descrição</th>
                 <th>Categoria</th>
                 <th>Editar / Excluir</th>
               </tr>
             </thead>
             <tbody>
+            <%= for product <- @products do %>
               <tr>
-                <td>Jacob</td>
-                <td>Photoshop</td>
-                <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                <td><label class="badge badge-danger">Pending</label></td>
+                <td><%= product.id %></td>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.category %></td>
+                <td>
+                  <span><%= link "Mostrar", class: "btn btn-primary", to: Routes.product_path(@conn, :show, product) %></span>
+                  <span><%= link "Editar", class: "btn btn-warning", to: Routes.product_path(@conn, :edit, product) %></span>
+                  <span><%= link "Excluir", class: "btn btn-danger", to: Routes.product_path(@conn, :delete, product), method: :delete, data: [confirm: "Are you sure?"] %></span>
+                </td>
               </tr>
-              <tr>
-                <td>Messsy</td>
-                <td>Flash</td>
-                <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                <td><label class="badge badge-warning">In progress</label></td>
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>Premier</td>
-                <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                <td><label class="badge badge-info">Fixed</label></td>
-              </tr>
-              <tr>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                <td><label class="badge badge-success">Completed</label></td>
-              </tr>
-              <tr>
-                <td>Dave</td>
-                <td>53275535</td>
-                <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                <td><label class="badge badge-warning">In progress</label></td>
-              </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
@@ -88,34 +39,3 @@
     </div>
   </div>
 </div>
-
-<h1>Listing Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for product <- @products do %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= product.description %></td>
-      <td><%= product.category %></td>
-
-      <td>
-        <span><%= link "Show", to: Routes.product_path(@conn, :show, product) %></span>
-        <span><%= link "Edit", to: Routes.product_path(@conn, :edit, product) %></span>
-        <span><%= link "Delete", to: Routes.product_path(@conn, :delete, product), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Product", to: Routes.product_path(@conn, :new) %></span>

@@ -3,7 +3,7 @@ defmodule Gestoque.Stok.Category do
   import Ecto.Changeset
 
   schema "categories" do
-
+    field :name, :string
 
     timestamps()
   end
@@ -11,7 +11,7 @@ defmodule Gestoque.Stok.Category do
   @doc false
   def changeset(category, attrs) do
     category
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
   end
 end

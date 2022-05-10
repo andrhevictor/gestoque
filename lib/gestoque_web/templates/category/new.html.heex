@@ -1,5 +1,37 @@
-<h1>New Category</h1>
-
-<%= render "form.html", Map.put(assigns, :action, Routes.category_path(@conn, :create)) %>
-
-<span><%= link "Back", to: Routes.category_path(@conn, :index) %></span>
+<div class="page-header">
+  <h3 class="page-title"> Produtos </h3>
+</div>
+<span><%= link "New Product", class: "btn btn-success", to: Routes.category_path(@conn, :new) %></span>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista de Categorias</h4>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <td>Nome</td>
+                <th>Editar / Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+            <%= for category <- @categories do %>
+              <tr>
+                <td><%= category.id %></td>
+                <td><%= category.name %></td>
+                <td>
+                  <span><%= link "Mostrar", class: "btn btn-primary", to: Routes.category_path(@conn, :show, category) %></span>
+                  <span><%= link "Editar", class: "btn btn-warning", to: Routes.category_path(@conn, :edit, category) %></span>
+                  <span><%= link "Excluir", class: "btn btn-danger", to: Routes.category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"] %></span>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

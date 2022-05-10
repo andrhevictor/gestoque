@@ -5,7 +5,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= submit "Save" %>
+<div class="col-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Basic form elements</h4>
+      <p class="card-description"> Basic form elements </p>
+      <form class="forms-sample">
+        <div class="form-group">
+          <label for="exampleInputName1">Nome</label>
+          <%= text_input f, :name, class: "form-control", placeholder: "Nome da Categoria" %>
+          <%= error_tag f, :name %>
+        </div>
+        <div>
+          <%= submit "Salvar", class: "btn btn-primary mr-2" %>
+        </div>
+      </form>
+    </div>
   </div>
+</div>
+
 </.form>

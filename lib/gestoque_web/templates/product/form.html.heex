@@ -5,28 +5,6 @@
     </div>
   <% end %>
 
-  <%= label f, :name %>
-  <%= text_input f, :name %>
-  <%= error_tag f, :name %>
-
-  <%= label f, :description %>
-  <%= text_input f, :description %>
-  <%= error_tag f, :description %>
-
-  <%= label f, :category %>
-  <%= text_input f, :category %>
-  <%= error_tag f, :category %>
-
-  <div>
-    <%= submit "Save" %>
-  </div>
-</.form>
-
-<div class="page-header">
-  <h3 class="page-title"> Lista de Produtos </h3>
-</div>
-
-
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
@@ -35,25 +13,38 @@
       <form class="forms-sample">
         <div class="form-group">
           <label for="exampleInputName1">Nome</label>
-          <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+          <%= text_input f, :name, class: "form-control", placeholder: "Nome do Produto" %>
+          <%= error_tag f, :name %>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail3">Descrição</label>
-          <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+          <%= text_input f, :description, class: "form-control", placeholder: "Descrição" %>
+          <%= error_tag f, :name %>
         </div>
+        <div class="form-group">
+          <label for="exampleInputEmail3">Categoria</label>
+          <%= text_input f, :category, class: "form-control", placeholder: "Categoria" %>
+          <%= error_tag f, :category %>
+        </div>
+        <!--
         <div class="form-group">
           <label>Categoria</label>
           <select class="js-example-basic-single" style="width:100%">
-            <option value="AL">Alabama</option>
+      
             <option value="WY">Wyoming</option>
             <option value="AM">America</option>
             <option value="CA">Canada</option>
             <option value="RU">Russia</option>
+
           </select>
         </div>
-        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-        <button class="btn btn-dark">Cancel</button>
+        -->
+        <div>
+          <%= submit "Salvar", class: "btn btn-primary mr-2" %>
+        </div>
       </form>
     </div>
   </div>
 </div>
+
+</.form>
