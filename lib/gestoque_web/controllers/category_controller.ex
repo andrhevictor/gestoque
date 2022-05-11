@@ -19,7 +19,7 @@ defmodule GestoqueWeb.CategoryController do
       {:ok, category} ->
         conn
         |> put_flash(:info, "Category created successfully.")
-        |> redirect(to: Routes.category_path(conn, :show, category))
+        |> redirect(to: Routes.category_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

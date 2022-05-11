@@ -18,8 +18,8 @@ defmodule GestoqueWeb.ProductController do
     case Stok.create_product(product_params) do
       {:ok, product} ->
         conn
-        |> put_flash(:info, "Product created successfully.")
-        |> redirect(to: Routes.product_path(conn, :show, product))
+        |> put_flash(:info, "Produto criado com sucesso.")
+        |> redirect(to: Routes.product_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

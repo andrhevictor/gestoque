@@ -3,7 +3,7 @@ defmodule Gestoque.Stok.Product do
   import Ecto.Changeset
 
   schema "products" do
-    field :category, :string
+    belongs_to(:categories, Gestoque.Stok.Category, [foreign_key: :category_id])
     field :description, :string
     field :name, :string
 
@@ -13,7 +13,7 @@ defmodule Gestoque.Stok.Product do
   @doc false
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :description, :category])
-    |> validate_required([:name, :description, :category])
+    |> cast(attrs, [:name, :description, :category_id])
+    |> validate_required([:name, :description, :category_id])
   end
 end

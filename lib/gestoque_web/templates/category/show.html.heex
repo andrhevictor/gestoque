@@ -1,7 +1,10 @@
 <h1>Show Category</h1>
 
 <ul>
-
+    <li>
+        <strong>Name:</strong>
+        <%= @product.name %>
+    </li>
 </ul>
 
 <span><%= link "Edit", to: Routes.category_path(@conn, :edit, @category) %></span> |

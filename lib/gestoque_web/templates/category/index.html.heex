@@ -1,24 +1,40 @@
-<h1>Listing Categories</h1>
+<div class="page-header">
+  <h3 class="page-title"> Categoria </h3>
+</div>
 
-<table>
-  <thead>
-    <tr>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for category <- @categories do %>
-    <tr>
-
-      <td>
-        <span><%= link "Show", to: Routes.category_path(@conn, :show, category) %></span>
-        <span><%= link "Edit", to: Routes.category_path(@conn, :edit, category) %></span>
-        <span><%= link "Delete", to: Routes.category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Category", to: Routes.category_path(@conn, :new) %></span>
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card d-grid gap-2 d-md-flex justify-content-md-end">
+  <span><%= link "Adicionar Categoria", class: "btn btn-success", to: Routes.category_path(@conn, :new) %></span>
+  </div>
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista de Categorias</h4>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <td>Nome</td>
+                <th>Editar / Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+            <%= for category <- @categories do %>
+              <tr>
+                <td><%= category.id %></td>
+                <td><%= category.name %></td>
+                <td>
+                  <span><%= link "Exibir", class: "btn btn-primary", to: Routes.category_path(@conn, :show, category) %></span>
+                  <span><%= link "Editar", class: "btn btn-warning", to: Routes.category_path(@conn, :edit, category) %></span>
+                  <span><%= link "Excluir", class: "btn btn-danger", to: Routes.category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"] %></span>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

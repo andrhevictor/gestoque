@@ -25,7 +25,7 @@ defmodule Gestoque.StokFixtures do
     {:ok, category} =
       attrs
       |> Enum.into(%{
-
+        name: "some name"
       })
       |> Gestoque.Stok.create_category()
 
