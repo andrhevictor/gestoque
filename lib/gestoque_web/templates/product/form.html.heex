@@ -1,6 +1,6 @@
 
   <%= if @changeset.action do %>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger col-12 grid-margin stretch-card">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
@@ -27,19 +27,12 @@
             <%= text_input f, :category_id, class: "form-control", placeholder: "Categoria" %>
             <%= error_tag f, :category_id %>
           </div>
-          <!--
+       
           <div class="form-group">
             <label>Categoria</label>
-            <select class="js-example-basic-single" style="width:100%">
-        
-              <option value="WY">Wyoming</option>
-              <option value="AM">America</option>
-              <option value="CA">Canada</option>
-              <option value="RU">Russia</option>
-
-            </select>
+             <%= select f, :category_id, @categories, class: "form-control" %>
           </div>
-          -->
+    
           <div>
             <%= submit "Salvar", class: "btn btn-primary mr-2" %>
           </div>

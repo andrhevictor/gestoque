@@ -36,13 +36,15 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <h2 class="sidebar-brand brand-logo" style="color: white">Gestoque</h2>
+        <h2 class="sidebar-brand brand-logo-mini" style="color: white" >G</h2>
          <!-- <a class="sidebar-brand brand-logo" href={Routes.page_path(@conn, :index)}><img src={Routes.static_path(@conn, "/assets/images/logo.svg")} alt="logo" /></a>
           <a class="sidebar-brand brand-logo-mini" href={Routes.page_path(@conn, :index)}><img src={Routes.static_path(@conn, "/assets/images/logo-mini.svg")} alt="logo" /></a>
           -->
         </div>
         <ul class="nav">   
           <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+           
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href={Routes.page_path(@conn, :index)}>
@@ -63,7 +65,6 @@
             <div class="collapse" id="cadastro">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><%= link "Produtos" , to: Routes.product_path(@conn, :index), class: "nav-link" %></li>
-                <li class="nav-item"><%= link "Fornecedores" , to: Routes.product_path(@conn, :index), class: "nav-link" %></li>
                 <li class="nav-item"><%= link "Categorias" , to: Routes.category_path(@conn, :index), class: "nav-link" %></li>
               </ul>
             </div>
@@ -88,6 +89,7 @@
                 </form>
               </li>
             </ul>
+            <!--
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Create New Project</a>
@@ -212,8 +214,6 @@
                   </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <h6 class="p-3 mb-0">Profile</h6>
-                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
@@ -221,7 +221,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="preview-subject mb-1">Configurações</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -232,14 +232,13 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
+                      <p class="preview-subject mb-1">Sair</p>
                     </div>
                   </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Advanced settings</p>
                 </div>
               </li>
             </ul>
+            -->
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
               <span class="mdi mdi-format-line-spacing"></span>
             </button>
