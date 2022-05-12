@@ -197,4 +197,9 @@ defmodule Gestoque.Stok do
   def change_category(%Category{} = category, attrs \\ %{}) do
     Category.changeset(category, attrs)
   end
+
+  def select_category do
+    Repo.all(Category)
+    |> Enum.map(&{"#{&1.name}", &1.id})
+  end
 end

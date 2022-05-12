@@ -11,7 +11,8 @@ defmodule GestoqueWeb.ProductController do
 
   def new(conn, _params) do
     changeset = Stok.change_product(%Product{})
-    render(conn, "new.html", changeset: changeset)
+    categories = Stok.select_category()
+    render(conn, "new.html", changeset: changeset, categories: categories)
   end
 
   def create(conn, %{"product" => product_params}) do
@@ -22,7 +23,8 @@ defmodule GestoqueWeb.ProductController do
         |> redirect(to: Routes.product_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        categories = Stok.select_category()
+        render(conn, "new.html", changeset: changeset, categories: categories)
     end
   end
 
@@ -34,7 +36,8 @@ defmodule GestoqueWeb.ProductController do
   def edit(conn, %{"id" => id}) do
     product = Stok.get_product!(id)
     changeset = Stok.change_product(product)
-    render(conn, "edit.html", product: product, changeset: changeset)
+    categories = Stok.select_category()
+    render(conn, "edit.html", product: product, changeset: changeset, categories: categories)
   end
 
   def update(conn, %{"id" => id, "product" => product_params}) do
@@ -47,7 +50,8 @@ defmodule GestoqueWeb.ProductController do
         |> redirect(to: Routes.product_path(conn, :show, product))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", product: product, changeset: changeset)
+        categories = Stok.select_category()
+        render(conn, "edit.html", product: product, changeset: changeset, categories: categories)
     end
   end
 
