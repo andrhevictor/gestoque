@@ -21,6 +21,12 @@ defmodule Gestoque.Stok do
     Repo.all(Product)
   end
 
+  def list_products_with_categories_name do
+    Product
+    |> Repo.all()
+    |> Repo.preload(:categories)
+  end
+
   @doc """
   Gets a single product.
 

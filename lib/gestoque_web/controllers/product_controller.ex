@@ -5,7 +5,7 @@ defmodule GestoqueWeb.ProductController do
   alias Gestoque.Stok.Product
 
   def index(conn, _params) do
-    products = Stok.list_products()
+    products = Stok.list_products_with_categories_name()
     render(conn, "index.html", products: products)
   end
 

@@ -27,7 +27,7 @@
                 <td><%= product.id %></td>
                 <td><%= product.name %></td>
                 <td><%= product.description %></td>
-                <td><%= product.category_id %></td>
+                <td><%= product.categories.name %></td>
                 <td>
                   <span><%= link "Exibir", class: "btn btn-primary", to: Routes.product_path(@conn, :show, product) %></span>
                   <span><%= link "Editar", class: "btn btn-warning", to: Routes.product_path(@conn, :edit, product) %></span>
