@@ -8,31 +8,23 @@
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Basic form elements</h4>
-      <p class="card-description"> Basic form elements </p>
       <.form let={f} for={@changeset} action={@action}>
         <form class="forms-sample">
           <div class="form-group">
-            <label for="exampleInputName1">Nome</label>
+            <label for="InputName">Nome</label>
             <%= text_input f, :name, class: "form-control", placeholder: "Nome do Produto" %>
             <%= error_tag f, :name %>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail3">Descrição</label>
+            <label for="InputDescription">Descrição</label>
             <%= text_input f, :description, class: "form-control", placeholder: "Descrição" %>
             <%= error_tag f, :name %>
-          </div>
+          </div>       
           <div class="form-group">
-            <label for="exampleInputEmail3">Categoria</label>
-            <%= text_input f, :category_id, class: "form-control", placeholder: "Categoria" %>
-            <%= error_tag f, :category_id %>
-          </div>
-       
-          <div class="form-group">
-            <label>Categoria</label>
+            <label for="InputCategory">Categoria</label>
              <%= select f, :category_id, @categories, class: "form-control" %>
+             <%= error_tag f, :category_id %>
           </div>
-    
           <div>
             <%= submit "Salvar", class: "btn btn-primary mr-2" %>
           </div>
