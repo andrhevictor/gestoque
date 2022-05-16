@@ -1,0 +1,28 @@
+<h1>Listing Input</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for input <- @input do %>
+    <tr>
+      <td><%= input.user %></td>
+      <td><%= input.date %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.input_path(@conn, :show, input) %></span>
+        <span><%= link "Edit", to: Routes.input_path(@conn, :edit, input) %></span>
+        <span><%= link "Delete", to: Routes.input_path(@conn, :delete, input), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Input", to: Routes.input_path(@conn, :new) %></span>
