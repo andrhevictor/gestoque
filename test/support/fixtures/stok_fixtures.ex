@@ -5,20 +5,6 @@ defmodule Gestoque.StokFixtures do
   """
 
   @doc """
-  Generate a product.
-  """
-  def product_fixture(attrs \\ %{}) do
-    {:ok, product} =
-      attrs
-      |> Enum.into(%{
-
-      })
-      |> Gestoque.Stok.create_product()
-
-    product
-  end
-
-  @doc """
   Generate a category.
   """
   def category_fixture(attrs \\ %{}) do
