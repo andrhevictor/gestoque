@@ -41,7 +41,11 @@ defmodule Gestoque.Stok do
       ** (Ecto.NoResultsError)
 
   """
-  def get_product!(id), do: Repo.get!(Product, id)
+  def get_product!(id) do
+    Product
+    |> Repo.get!(id)
+    |> Repo.preload(:categories)
+  end
 
   @doc """
   Creates a product.
