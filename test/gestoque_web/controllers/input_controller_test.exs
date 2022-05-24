@@ -1,6 +1,7 @@
 defmodule GestoqueWeb.InputControllerTest do
   use GestoqueWeb.ConnCase
 
+<<<<<<< HEAD
   import Gestoque.MovimentFixtures
 
   @create_attrs %{date: ~D[2022-05-21], status: 42}
@@ -11,6 +12,18 @@ defmodule GestoqueWeb.InputControllerTest do
     test "lists all inputs", %{conn: conn} do
       conn = get(conn, Routes.input_path(conn, :index))
       assert html_response(conn, 200) =~ "Listing Inputs"
+=======
+  import Gestoque.MovementFixtures
+
+  @create_attrs %{date: ~D[2022-05-12], user: "some user"}
+  @update_attrs %{date: ~D[2022-05-13], user: "some updated user"}
+  @invalid_attrs %{date: nil, user: nil}
+
+  describe "index" do
+    test "lists all input", %{conn: conn} do
+      conn = get(conn, Routes.input_path(conn, :index))
+      assert html_response(conn, 200) =~ "Listing Input"
+>>>>>>> 54f69fd77b9f3fdbe179bb97960f38b716a3c6a0
     end
   end
 
@@ -55,7 +68,11 @@ defmodule GestoqueWeb.InputControllerTest do
       assert redirected_to(conn) == Routes.input_path(conn, :show, input)
 
       conn = get(conn, Routes.input_path(conn, :show, input))
+<<<<<<< HEAD
       assert html_response(conn, 200)
+=======
+      assert html_response(conn, 200) =~ "some updated user"
+>>>>>>> 54f69fd77b9f3fdbe179bb97960f38b716a3c6a0
     end
 
     test "renders errors when data is invalid", %{conn: conn, input: input} do
