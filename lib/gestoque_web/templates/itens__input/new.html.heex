@@ -1,0 +1,5 @@
+<h1>New Itens  input</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.itens__input_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.itens__input_path(@conn, :index) %></span>

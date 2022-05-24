@@ -1,0 +1,18 @@
+<h1>Show Itens  input</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @itens__input.name %>
+  </li>
+
+  <li>
+    <strong>Qtd:</strong>
+    <%= @itens__input.qtd %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.itens__input_path(@conn, :edit, @itens__input) %></span> |
+<span><%= link "Back", to: Routes.itens__input_path(@conn, :index) %></span>

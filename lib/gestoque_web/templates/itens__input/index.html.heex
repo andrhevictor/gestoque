@@ -1,0 +1,28 @@
+<h1>Listing Itens input</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Qtd</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for itens__input <- @itens_input do %>
+    <tr>
+      <td><%= itens__input.name %></td>
+      <td><%= itens__input.qtd %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.itens__input_path(@conn, :show, itens__input) %></span>
+        <span><%= link "Edit", to: Routes.itens__input_path(@conn, :edit, itens__input) %></span>
+        <span><%= link "Delete", to: Routes.itens__input_path(@conn, :delete, itens__input), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Itens  input", to: Routes.itens__input_path(@conn, :new) %></span>

@@ -1,0 +1,18 @@
+<h1>Show Input</h1>
+
+<ul>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @input.date %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @input.status %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.input_path(@conn, :edit, @input) %></span> |
+<span><%= link "Back", to: Routes.input_path(@conn, :index) %></span>
