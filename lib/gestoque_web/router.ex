@@ -20,8 +20,6 @@ defmodule GestoqueWeb.Router do
     get "/", PageController, :index
     resources "/products", ProductController
     resources "/categories", CategoryController
-    resources "/inputs", InputController
-    resources "/itens_input", Itens_InputController
   end
 
   # Other scopes may use custom stacks.
